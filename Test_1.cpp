@@ -9,11 +9,14 @@ void moveMouse(int x, int y) {
     input.mi.mouseData = 0;
     input.mi.dx = x;
     input.mi.dy = y;
-    input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE;
+    input.mi.dwFlags = MOUSEEVENTF_MOVE;
     SendInput(1, &input, sizeof(input));
 }
 
 int main(int argc, char* argv[]) {
-    moveMouse(100000,100000);
+    for (int i = 0;i < 500;i++) {
+        moveMouse(10, 0);
+        _sleep(20);
+    }
     return 1;
 }
